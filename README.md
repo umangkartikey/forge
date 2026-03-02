@@ -31,7 +31,8 @@ FORGE is not a typical security tool. It's a **cognitive architecture** — an A
 ## Quick Start
 
 ```bash
-git clone https://github.com/yourusername/forge
+# In your repo, update README.md line:
+git clone https://github.com/umangkartikey/forge
 cd forge
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_key_here
