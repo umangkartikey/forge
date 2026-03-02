@@ -25,7 +25,14 @@ FORGE is not a typical security tool. It's a **cognitive architecture** — an A
 - 🧠 **Shares a hive mind** — findings and new tools propagate to all workers instantly
 - 📚 **Learns from every run** — gets measurably smarter over time via SQLite brain
 - 🔁 **Evolves its own prompts** — genetic algorithm rewrites its own thinking
-
+  
+## LLM Pentesting
+FORGE can audit AI systems themselves:
+- Prompt injection testing
+- System prompt extraction  
+- RAG pipeline data leakage
+- Agent hijacking via indirect injection
+- Jailbreak enumeration
 ---
 # 🟣 Claude (default, no change needed)
 python forge_swarm.py
