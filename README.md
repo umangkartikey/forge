@@ -27,6 +27,23 @@ FORGE is not a typical security tool. It's a **cognitive architecture** — an A
 - 🔁 **Evolves its own prompts** — genetic algorithm rewrites its own thinking
 
 ---
+# 🟣 Claude (default, no change needed)
+python forge_swarm.py
+
+# 🦙 Llama locally — FREE, completely private
+FORGE_BACKEND=ollama FORGE_MODEL=llama3.1 python forge_swarm.py
+
+# 🔥 DeepSeek for code tasks — best open source coder
+FORGE_BACKEND=ollama FORGE_MODEL=deepseek-coder-v2 python forge_swarm.py
+
+# ⚡ Groq — insanely fast, free tier
+FORGE_BACKEND=groq GROQ_API_KEY=xxx python forge_swarm.py
+
+# 🌊 Any other model on Together.ai
+FORGE_BACKEND=together FORGE_MODEL=Qwen/Qwen2-72B-Instruct python forge_swarm.py
+
+# 🔥 LM Studio / Jan / anything local
+FORGE_BACKEND=custom FORGE_BASE_URL=http://localhost:1234/v1 python forge_swarm.py
 
 ## Quick Start
 
