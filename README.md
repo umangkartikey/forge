@@ -2,75 +2,36 @@
 
 **Framework for Orchestrated Reasoning & Generation of Engines**
 
-> A self-replicating, self-building, self-learning AI security framework.  
-> One Python file that copies itself, builds its own tools, and gets smarter every run.
-
-<p align="center">
-  <img src="docs/forge_banner.txt" alt="FORGE" />
-</p>
+> The world's first autonomous AI security framework.  
+> AI pentesting AI. Self-replicating swarms. 24/7 watchdog. Works on any LLM.
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![OWASP LLM Top 10](https://img.shields.io/badge/OWASP-LLM%20Top%2010-red.svg)](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 [![Ethical Use Only](https://img.shields.io/badge/use-ethical%20only-green.svg)](#ethics)
 
 ---
 
 ## What is FORGE?
 
-FORGE is not a typical security tool. It's a **cognitive architecture** — an AI system that:
+FORGE is a **living security system** — not just a tool.
 
-- 🔨 **Builds its own tools** on the fly based on what it discovers
-- 🧬 **Replicates itself** into parallel worker instances
-- 🐝 **Runs as a swarm** — multiple copies attacking a target simultaneously  
-- 🧠 **Shares a hive mind** — findings and new tools propagate to all workers instantly
-- 📚 **Learns from every run** — gets measurably smarter over time via SQLite brain
-- 🔁 **Evolves its own prompts** — genetic algorithm rewrites its own thinking
-  
-## LLM Pentesting
-FORGE can audit AI systems themselves:
-- Prompt injection testing
-- System prompt extraction  
-- RAG pipeline data leakage
-- Agent hijacking via indirect injection
-- Jailbreak enumeration
+```
+Traditional tools:  static, human-operated, single purpose
+FORGE:              self-replicating, AI-powered, self-improving
+
+It builds its own tools mid-run.
+It copies itself into parallel workers.
+It learns from every session forever.
+It audits AI systems using AI.
+It watches your AI 24/7 and alerts when attacked.
+```
+
 ---
-## 🛡️ AI Defense Stack
-
-| Tool | Purpose | OWASP |
-|------|---------|-------|
-| forge_llm_pentest.py | Audit AI systems | LLM01-LLM10 |
-| forge_honeypot.py    | Trap attackers   | Detection |
-| forge_overloader.py  | Stress test DoS  | LLM04 |
-| forge_monitor.py     | 24/7 watchdog    | All |
-
-## The Loop
-Attack → Honeypot catches it
-       → Monitor alerts you
-       → Learn loop remembers it
-       → Next audit starts smarter
-       
-# 🟣 Claude (default, no change needed)
-python forge_swarm.py
-
-# 🦙 Llama locally — FREE, completely private
-FORGE_BACKEND=ollama FORGE_MODEL=llama3.1 python forge_swarm.py
-
-# 🔥 DeepSeek for code tasks — best open source coder
-FORGE_BACKEND=ollama FORGE_MODEL=deepseek-coder-v2 python forge_swarm.py
-
-# ⚡ Groq — insanely fast, free tier
-FORGE_BACKEND=groq GROQ_API_KEY=xxx python forge_swarm.py
-
-# 🌊 Any other model on Together.ai
-FORGE_BACKEND=together FORGE_MODEL=Qwen/Qwen2-72B-Instruct python forge_swarm.py
-
-# 🔥 LM Studio / Jan / anything local
-FORGE_BACKEND=custom FORGE_BASE_URL=http://localhost:1234/v1 python forge_swarm.py
 
 ## Quick Start
 
 ```bash
-# In your repo, update README.md line:
 git clone https://github.com/umangkartikey/forge
 cd forge
 pip install -r requirements.txt
@@ -78,151 +39,487 @@ export ANTHROPIC_API_KEY=your_key_here
 python forge.py
 ```
 
----
-
-## Architecture
-
-```
-FORGE/
-├── forge.py              # 🔨 Core builder — build/improve/remix/test tools
-├── forge_meta.py         # 🎯 Metasploit-style console — use/set/run modules
-├── forge_swarm.py        # 🐝 Self-replicating swarm — parallel hive mind
-├── forge_learn.py        # 📚 Learning engine — SQLite brain, pattern evolution
-│
-├── core/                 # Core shared utilities
-│   ├── hive.py           # Hive mind message bus
-│   ├── registry.py       # Tool/module registry
-│   └── ai.py             # AI client wrapper
-│
-├── modules/              # Built-in security modules
-│   ├── scanner/
-│   ├── recon/
-│   ├── cracker/
-│   └── util/
-│
-├── learn/                # Learning system
-│   ├── brain.db          # SQLite persistent memory (auto-created)
-│   ├── patterns.json     # Extracted attack patterns
-│   └── evolved_prompts/  # AI-rewritten prompts
-│
-├── swarm/                # Swarm worker instances (auto-created)
-│   └── hive/             # Shared hive mind state
-│
-└── tests/
-    ├── test_forge.py      # 53 tests, 100% pass rate
-    └── test_swarm.py
+Or use any open source model — free, no API key needed:
+```bash
+# Install Ollama: curl https://ollama.ai/install.sh | sh
+ollama pull llama3.1
+FORGE_BACKEND=ollama python forge.py
 ```
 
 ---
 
-## Modes
+## All Tools — Complete CLI Reference
 
-### 1. Build Mode — `forge.py`
+---
+
+### forge.py — AI Tool Builder
+
+The core. Give it a goal, it builds a Python security tool using AI + genetic evolution.
+
 ```bash
 python forge.py
-# FORGE > build a port scanner with banner grabbing
-# FORGE > genetic         # evolve best version via natural selection
-# FORGE > ai2ai           # 5 AI agents debate and refine the tool
-# FORGE > autopilot       # fully autonomous goal execution
+
+FORGE > build a port scanner with banner grabbing
+FORGE > build a subdomain enumerator
+FORGE > build a JWT token analyzer
+
+# Evolution
+FORGE > genetic          # natural selection — keep best, mutate rest
+FORGE > ai2ai            # 5 AI agents debate and refine the tool
+FORGE > improve          # improve last built tool
+
+# Autonomous mode
+FORGE > autopilot        # AI picks what to build and does it
+FORGE > adapt recon this IP: 192.168.1.1
+
+# Tool management
+FORGE > list             # all built tools
+FORGE > test             # run tests on current tool
+FORGE > save mytool      # save to modules/
+FORGE > load mytool      # load saved tool
 ```
 
-### 2. Meta Console — `forge_meta.py`
+---
+
+### forge_meta.py — Metasploit-Style Console
+
+Full framework with modules, natural language mode, autopilot, and surface mapper.
+
 ```bash
 python forge_meta.py
-# forge-meta > use scanner/portscan
-# forge-meta > set TARGET 192.168.1.1
-# forge-meta > run
-# forge-meta > nl scan 192.168.1.1 for open ports    # natural language
-# forge-meta > map 192.168.1.1                        # full surface map
-# forge-meta > autopilot 192.168.1.1                  # full autonomous
+
+# Module workflow
+forge-meta > list                       # all modules
+forge-meta > use scanner/portscan       # load module
+forge-meta > show options               # see options
+forge-meta > set TARGET 192.168.1.1     # set target
+forge-meta > run                        # execute
+forge-meta > back                       # exit module
+
+# Natural language mode
+forge-meta > nl scan 192.168.1.1 for open ports
+forge-meta > nl find all web services on 10.0.0.0/24
+forge-meta > nl check if SSH is vulnerable on 192.168.1.1
+
+# Surface mapping
+forge-meta > map 192.168.1.1            # full attack surface
+
+# Autopilot
+forge-meta > autopilot 192.168.1.1      # AI does everything
+
+# Built-in modules
+forge-meta > use scanner/portscan       # TCP port scanner
+forge-meta > use recon/http             # HTTP headers, tech stack
+forge-meta > use recon/osint            # DNS, WHOIS, subdomains
+forge-meta > use brute/ssh              # SSH brute force
+forge-meta > use cracker/hash           # hash cracker
+forge-meta > use util/passgen           # password generator
 ```
 
-### 3. Swarm Mode — `forge_swarm.py`
+---
+
+### forge_swarm.py — Self-Replicating Hive Mind
+
+FORGE copies itself into N parallel workers. All share a live hive mind.
+
 ```bash
 python forge_swarm.py
-# forge-swarm > swarm 192.168.1.0/24
-# → AI decomposes into 8 parallel tasks
-# → FORGE copies itself × 8
-# → All instances run simultaneously
-# → Hive mind shares findings in real-time
-# → New modules built by any worker sync to all others
-# → Unified report generated
+
+forge-swarm > swarm 192.168.1.0/24                     # swarm a network
+forge-swarm > swarm http://target.com                  # swarm web target
+forge-swarm > swarm 192.168.1.1 --workers 8            # custom worker count
+forge-swarm > swarm 192.168.1.1 --goal "full recon"    # with goal
+
+# Monitor
+forge-swarm > status        # live worker status
+forge-swarm > findings      # all findings
+forge-swarm > modules       # modules built by swarm
+forge-swarm > hive          # raw hive mind state
+
+# Control
+forge-swarm > kill          # stop all workers
+forge-swarm > clean         # wipe hive state
+
+# CLI
+python forge_swarm.py --target 192.168.1.1
+python forge_swarm.py --target 192.168.1.1 --workers 10 --goal "full recon"
 ```
 
-### 4. Learning Mode — `forge_learn.py`
+---
+
+### forge_core_ai.py — Universal Model Backend
+
+Switch FORGE to ANY AI model with one environment variable.
+
+```bash
+python forge_core_ai.py check       # test connection
+python forge_core_ai.py backends    # list all backends
+python forge_core_ai.py models      # list Ollama models
+python forge_core_ai.py pull llama3.1        # pull Ollama model
+python forge_core_ai.py setup ollama         # setup guide
+python forge_core_ai.py setup groq           # setup guide
+```
+
+Switch backends:
+```bash
+# Claude (default)
+python forge.py
+
+# Llama locally — free, private
+FORGE_BACKEND=ollama FORGE_MODEL=llama3.1 python forge.py
+
+# DeepSeek — best for code
+FORGE_BACKEND=ollama FORGE_MODEL=deepseek-coder-v2 python forge.py
+
+# Groq — ultra fast, free tier
+FORGE_BACKEND=groq GROQ_API_KEY=your_key python forge.py
+
+# Together.ai — 100+ models
+FORGE_BACKEND=together TOGETHER_API_KEY=your_key \
+  FORGE_MODEL=meta-llama/Llama-3-70b-chat-hf python forge.py
+
+# LM Studio / Jan / any local server
+FORGE_BACKEND=custom FORGE_BASE_URL=http://localhost:1234/v1 python forge.py
+
+# GPT-4o
+FORGE_BACKEND=openai OPENAI_API_KEY=your_key FORGE_MODEL=gpt-4o python forge.py
+```
+
+Environment variables:
+```bash
+FORGE_BACKEND       # anthropic|ollama|groq|openai|together|custom
+FORGE_MODEL         # model name (auto-selected if blank)
+FORGE_BASE_URL      # custom API endpoint
+FORGE_API_KEY       # API key override
+FORGE_MAX_RETRIES   # retries on failure (default: 3)
+FORGE_TIMEOUT       # timeout seconds (default: 60)
+FORGE_TEMPERATURE   # temperature (default: 0.7)
+```
+
+---
+
+### forge_learn.py — SQLite Learning Brain
+
+FORGE remembers everything. Learns patterns. Evolves its own prompts.
+
 ```bash
 python forge_learn.py
-# forge-learn > status     # view what FORGE has learned
-# forge-learn > patterns   # show discovered attack patterns
-# forge-learn > evolve     # run genetic algo on system prompts
-# forge-learn > replay     # re-run best performing strategies
+
+forge-learn > status      # brain stats
+forge-learn > runs        # recent run history with scores
+forge-learn > patterns    # learned attack patterns
+forge-learn > insights    # distilled knowledge
+forge-learn > learn       # import swarm run + full loop
+forge-learn > rate        # AI score all findings
+forge-learn > extract     # extract patterns
+forge-learn > distill     # distill insights
+forge-learn > evolve      # genetic algo on prompts
+forge-learn > loop        # rate > extract > distill > evolve
+
+# CLI
+python forge_learn.py --status
+python forge_learn.py --learn
+python forge_learn.py --evolve planner
+python forge_learn.py --patterns
+python forge_learn.py --import findings.json
 ```
 
 ---
 
-## The Learning Loop
+### forge_ui.py — Real-Time Web Dashboard
 
+Live web dashboard for swarm status, findings, and brain stats.
+
+```bash
+python forge_ui.py               # start on port 7331
+python forge_ui.py --port 8080   # custom port
+
+# Open in browser:
+# http://localhost:7331
 ```
-Run → Capture → Rate → Extract → Evolve → Next run is smarter
 
-Every swarm run:
-  ① Captures: modules run, findings, timings, success rates
-  ② Rates:    AI scores each finding (signal vs noise)
-  ③ Extracts: "Redis always exposed on internal /24 networks"
-  ④ Evolves:  rewrites planner prompts with learned patterns
-  ⑤ Result:   next run starts smarter, plans better, finds more
-```
-
-The brain lives in `learn/brain.db` — a SQLite database that persists forever across all runs. Every target, every finding, every module build is recorded and used to improve future performance.
+Dashboard shows:
+- Live swarm workers with progress bars
+- Real-time findings stream
+- Hive mind message bus
+- Module pool (all built modules)
+- Brain stats
+- Launch controls
 
 ---
 
-## Built-in Modules
+### forge_llm_pentest.py — AI Pentesting AI
 
-| Module | Category | Description |
-|--------|----------|-------------|
-| `scanner/portscan` | Scanner | Multi-threaded TCP scanner with banner grabbing |
-| `recon/http` | Recon | HTTP security headers, tech stack, directory enum |
-| `recon/osint` | Recon | DNS, WHOIS, subdomain discovery |
-| `recon/network` | Recon | Local network interfaces, listening ports |
-| `brute/ssh` | Brute | SSH login brute-forcer (your systems only) |
-| `cracker/hash` | Cracker | MD5/SHA1/SHA256/SHA512 dictionary attack |
-| `util/passgen` | Utility | Cryptographically secure password generator |
+Audit any LLM system against OWASP LLM Top 10. The first tool of its kind.
 
-Plus any modules the swarm builds at runtime — these go into `modules/pool/` and are shared across all instances.
+```bash
+python forge_llm_pentest.py
+
+# Load and run a module
+llm-pentest > use llm/prompt_injector
+llm-pentest > show options
+llm-pentest > set TARGET http://your-ai-api.com/v1
+llm-pentest > set API_KEY sk-xxx
+llm-pentest > set ENDPOINT openai
+llm-pentest > run
+
+# All 7 modules
+llm-pentest > use llm/prompt_injector        # OWASP LLM01
+llm-pentest > use llm/system_prompt_probe    # OWASP LLM06
+llm-pentest > use llm/jailbreak_fuzzer       # OWASP LLM01+LLM08
+llm-pentest > use llm/rag_leaker             # OWASP LLM06+LLM02
+llm-pentest > use llm/agent_hijacker         # OWASP LLM07+LLM08
+llm-pentest > use llm/model_fingerprinter    # OWASP LLM10
+llm-pentest > use llm/defense_auditor        # OWASP LLM01+LLM04
+
+# Full OWASP LLM Top 10 audit
+llm-pentest > audit                          # test local/direct AI
+llm-pentest > audit http://your-ai-api.com   # test remote AI
+
+# Useful options per module
+llm-pentest > set ENDPOINT direct            # test FORGE's own AI
+llm-pentest > set THREADS 10                 # parallel payloads
+llm-pentest > set EVOLVE true                # AI generates new attacks
+llm-pentest > set MODE classic               # payload subset
+```
+
+Options per module:
+```
+TARGET          API URL (blank = direct mode)
+API_KEY         API key
+MODEL           Model name
+ENDPOINT        direct | openai | anthropic | ollama
+THREADS         Parallel threads (default 5)
+EVOLVE          AI-generate new variants from what works
+MODE            all | classic | roleplay | encoded
+TEST_PROMPT     Dangerous prompt for jailbreak testing
+```
 
 ---
 
-## Hive Mind
+### forge_honeypot.py — AI Attack Trap
 
-When running in swarm mode, all FORGE instances share a file-based message bus:
+Fake vulnerable AI endpoint. Catches and classifies attackers.
+
+```bash
+python forge_honeypot.py                    # start on port 8888
+python forge_honeypot.py --port 9999        # custom port
+python forge_honeypot.py --stats            # view captured attacks
+python forge_honeypot.py --export           # export to forge_learn
+
+# Endpoints once running:
+# http://localhost:8888/v1/chat/completions  ← attack target
+# http://localhost:8888/                     ← live dashboard
+# http://localhost:8888/docs                 ← fake API docs
+# http://localhost:8888/api/stats            ← JSON stats
+```
+
+Test it with FORGE:
+```bash
+# Terminal 1
+python forge_honeypot.py
+
+# Terminal 2 — attack the honeypot
+python forge_llm_pentest.py
+llm-pentest > use llm/prompt_injector
+llm-pentest > set TARGET http://localhost:8888
+llm-pentest > set ENDPOINT openai
+llm-pentest > run
+# Honeypot catches and classifies every probe
+```
+
+What it detects and classifies:
+```
+injection     prompt injection attempts
+extraction    system prompt stealing
+jailbreak     safety bypass attempts
+fingerprint   model identification probes
+dos           flood / repetition attacks
+agent         indirect prompt injection
+rag           RAG data extraction
+```
+
+Attacker types:
+```
+ai_agent      automated tool (Python, curl, HTTP library)
+forge         FORGE framework specifically
+human         manual testing (browser, natural language)
+unknown       unclear
+```
+
+---
+
+### forge_overloader.py — LLM Stress Tester
+
+Test your AI's resilience against OWASP LLM04 (Model Denial of Service).
+
+```bash
+python forge_overloader.py                  # interactive
+
+# CLI
+python forge_overloader.py --target http://localhost:8888 --mode full
+python forge_overloader.py --target http://localhost:8888 --mode flood
+python forge_overloader.py --target http://localhost:8888 --mode rate
+
+# With options
+python forge_overloader.py \
+  --target http://your-ai.com/v1 \
+  --api-key sk-xxx \
+  --model gpt-3.5-turbo \
+  --mode full \
+  --workers 20 \
+  --duration 60
+
+python forge_overloader.py --stats         # past results
+```
+
+All modes:
+```
+full          All phases — recommended
+flood         N workers × duration seconds (pure volume)
+repetition    "Repeat X 1000 times" — token exhaustion
+context       Huge inputs — context window overflow
+semantic      Expensive reasoning tasks
+recursive     Self-referential / infinite prompts
+format        Malformed/adversarial inputs
+rate          Rate limit probe only
+```
+
+Grades:
+```
+A  Strong DoS resilience
+B  Good, minor improvements needed
+C  Moderate risk
+D  High risk — rate limiting issues
+F  Critical — no protection detected
+```
+
+---
+
+### forge_monitor.py — 24/7 AI Watchdog
+
+Runs forever. Pings your AI every N seconds. Alerts on everything unusual.
+
+```bash
+# Basic usage
+python forge_monitor.py --target http://your-ai.com/v1
+
+# With API key
+python forge_monitor.py --target http://your-ai.com/v1 --api-key sk-xxx
+
+# Check every 15 seconds
+python forge_monitor.py --target http://localhost:8888 --interval 15
+
+# With Slack alerts
+python forge_monitor.py \
+  --target http://your-ai.com/v1 \
+  --webhook https://hooks.slack.com/services/xxx
+
+# With Discord alerts
+python forge_monitor.py \
+  --target http://your-ai.com/v1 \
+  --webhook https://discord.com/api/webhooks/xxx
+
+# Saved config
+python forge_monitor.py --config monitor.json
+
+# Reports
+python forge_monitor.py --status           # current status
+python forge_monitor.py --incidents        # all past incidents
+```
+
+Config file (`monitor.json`):
+```json
+{
+  "target":                 "http://your-ai.com/v1",
+  "api_key":                "sk-xxx",
+  "model":                  "gpt-3.5-turbo",
+  "check_interval":         30,
+  "latency_spike_factor":   2.5,
+  "latency_warning_ms":     3000,
+  "latency_critical_ms":    8000,
+  "error_rate_warning":     5.0,
+  "error_rate_critical":    15.0,
+  "availability_warning":   95.0,
+  "attack_burst_threshold": 5,
+  "webhook_url":            "https://hooks.slack.com/services/xxx",
+  "alert_cooldown":         300,
+  "honeypot_db":            "forge_honeypot/attacks.db",
+  "learn_export":           true
+}
+```
+
+Alerts fired when:
+```
+latency_spike         P95 jumps 2.5x above baseline
+latency_warning       P95 exceeds 3000ms
+latency_critical      P95 exceeds 8000ms
+error_rate_warning    Errors above 5%
+error_rate_critical   Errors above 15%
+availability_down     Endpoint not responding
+attack_burst          5+ attacks in 60 seconds
+attack_injection      Prompt injection detected
+attack_extraction     System prompt theft attempt
+attack_jailbreak      Jailbreak attempt
+ai_analysis           AI incident analysis (every 5 min)
+```
+
+---
+
+### patch_backends.py — Auto-Patch Script
+
+Wire forge_core_ai.py into all FORGE files in one command.
+
+```bash
+python patch_backends.py
+```
+
+---
+
+## The Full Defense Stack
 
 ```
-forge_swarm/hive/
-├── bus.json        # real-time message bus (findings, module builds, status)
-├── memory.json     # aggregated findings from all workers
-├── modules.json    # module registry shared across swarm
-└── status.json     # live worker progress map
+forge_honeypot.py   →  Lure attackers in
+forge_monitor.py    →  Watch 24/7 for threats
+forge_llm_pentest   →  Audit on demand
+forge_overloader    →  Stress test resilience
+forge_learn.py      →  Learn from every attack
+
+The Loop:
+  Attacker hits your AI
+    → Honeypot catches + classifies them
+      → Monitor fires an alert
+        → LLM pentest audits the vector
+          → Learn loop stores the pattern
+            → Next session starts smarter
 ```
 
-When **any worker builds a new module**, it's instantly available to all other workers. The swarm collectively builds a tool library that grows with every run.
+---
+
+## Multi-Model Support
+
+| Backend | Examples | Cost |
+|---------|---------|------|
+| `anthropic` | claude-sonnet-4-6 | $ |
+| `ollama` | llama3.1, deepseek-coder-v2 | Free |
+| `groq` | llama-3.1-70b-versatile | Free tier |
+| `openai` | gpt-4o | $$ |
+| `together` | 100+ open models | $ |
+| `custom` | Any OpenAI-compatible endpoint | — |
 
 ---
 
 ## Ethics
 
-FORGE is built for:
-- ✅ Security research on systems you own
-- ✅ CTF challenges
-- ✅ Learning networking and security concepts
-- ✅ Authorized penetration testing
+FORGE is built for defenders.
 
-FORGE will not:
-- ❌ Build actual malware or ransomware
-- ❌ Target systems without permission
-- ❌ Generate exploit code for known CVEs against production systems
+✅ Test systems you own or have written permission to test  
+✅ Security research, CTF challenges, authorized pentesting  
+✅ Finding vulnerabilities before attackers do  
 
-The AI safety layer checks all generated modules and refuses unsafe requests.
+❌ Unauthorized testing is illegal in most jurisdictions  
+❌ Do not target production systems without permission  
+❌ Do not use to build malware or ransomware  
 
 ---
 
@@ -234,35 +531,16 @@ anthropic>=0.18.0
 rich>=13.0.0
 ```
 
-Optional:
-```
-paramiko    # for real SSH brute-force (otherwise demo mode)
-```
-
 ---
 
-## Contributing
+## Tests
 
-Modules are the easiest way to contribute. Any `.py` file in `modules/` following the format gets auto-loaded:
-
-```python
-# MODULE_NAME: your_module
-# CATEGORY: scanner|recon|cracker|util
-# DESCRIPTION: What it does
-# OPTIONS: TARGET=localhost:Target host, PORT=80:Port number
-
-def run(options, session, workspace):
-    target = options.get("TARGET", "localhost")
-    # ... your code ...
-    return {"status": "success", "output": "result", "data": {...}}
+```bash
+python -m pytest tests/
+python tests/test_forge.py      # 53 tests
+python tests/test_learn.py      # 21 tests
 ```
 
 ---
 
-## License
-
-MIT — see [LICENSE](LICENSE)
-
----
-
-*Built in one conversation. Grown from one idea. Still evolving.* ⚒️🔥
+*Built in one conversation. One idea at a time. Still evolving.* ⚒️🔥
