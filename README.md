@@ -34,6 +34,21 @@ FORGE can audit AI systems themselves:
 - Agent hijacking via indirect injection
 - Jailbreak enumeration
 ---
+## 🛡️ AI Defense Stack
+
+| Tool | Purpose | OWASP |
+|------|---------|-------|
+| forge_llm_pentest.py | Audit AI systems | LLM01-LLM10 |
+| forge_honeypot.py    | Trap attackers   | Detection |
+| forge_overloader.py  | Stress test DoS  | LLM04 |
+| forge_monitor.py     | 24/7 watchdog    | All |
+
+## The Loop
+Attack → Honeypot catches it
+       → Monitor alerts you
+       → Learn loop remembers it
+       → Next audit starts smarter
+       
 # 🟣 Claude (default, no change needed)
 python forge_swarm.py
 
