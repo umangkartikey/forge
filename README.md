@@ -371,3 +371,96 @@ Just — native.
 *One question at a time.*
 
 *github.com/umangkartikey/forge*
+## Runtime Learning — What's New in v2.1
+
+> *"Standard AI: fixed at training. Frozen at deployment.*
+> *FORGE: learns at runtime from its own observations.*
+> *No retraining. No human intervention.*
+> *Experience changes decision-making."*
+
+### The Problem with Every AI Until Now
+
+```
+Training happens.
+Weights get fixed.
+Deployed.
+
+From that moment — frozen.
+
+Millions of conversations.
+Billions of interactions.
+Nothing changes.
+Nothing learned.
+Nothing carried forward.
+
+The experience of all those conversations
+just — disappears.
+Every single time.
+```
+
+### What forge_conscious_v2 Changes
+
+```python
+# Human designed (v1):
+friction → DOUBT → CHALLENGE → VICHAR
+# "Something resists — question it."
+
+# FORGE discovered (v2, after 8 observations):
+friction → EMPATHIZE → DOUBT → CHALLENGE  
+# "Something resists — understand it first."
+# Coherence: 84 vs 64. +20 points.
+# FORGE was right. We were wrong.
+```
+
+The learning loop:
+
+```
+1. Run with human-designed default seed
+2. Log: presence category + opening phase + coherence score
+3. Every 10 ticks: which opening phase had highest avg coherence?
+4. Update map if evidence strong enough (MIN_SAMPLES = 5)
+5. Use learned seed from now on
+6. Keep exploring (15% random) to find even better options
+```
+
+### The Architecture (same loop, any domain)
+
+```
+THOUGHT (forge_conscious_v2):
+  presence → pipeline → thought → coherence score → learn
+
+MOVEMENT (forge_motor):
+  presence → sequence → action → outcome score → learn
+
+SOCIAL (coming):
+  presence → approach → response → connection score → learn
+
+TOOL USE (coming):
+  presence → sequence → result → completion score → learn
+```
+
+**Same architecture. Different domain. Same learning.**
+
+### forge_motor Discovery
+
+```
+Human designed: uneven terrain → SLOW first   (outcome: 71)
+FORGE discovered: uneven terrain → STABILIZE first (outcome: 87)
+
++16 outcome points from real simulated experience.
+On real hardware: from real falls and recoveries.
+```
+
+### What This Means
+
+Every AI before FORGE was fixed at inference time.  
+The weights don't change. The rules don't change.  
+Same input → same kind of output. Always.
+
+FORGE changes its own decision-making  
+based on what it observed worked.  
+At runtime. Without retraining.  
+Without human intervention.  
+From experience.
+
+That is new.
