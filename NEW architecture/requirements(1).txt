@@ -1,0 +1,10 @@
+# FORGE Brain — Python dependencies
+# Install with: pip install -r requirements.txt
+
+# Core
+flask>=2.3.0          # HTTP API for each module
+rich>=13.0.0          # Terminal UI, live dashboard, panels
+requests>=2.31.0      # Inter-module HTTP communication
+
+# Optional — improves performance
+anthropic>=0.18.0     # For AI-powered modules (forge_orchestrator_v2)
